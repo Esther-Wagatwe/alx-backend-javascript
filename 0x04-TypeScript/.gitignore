@@ -1,0 +1,22 @@
+# Node modules directory
+node_modules/
+
+# Compiled output
+dist/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Environment variables file
+.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Webpack bundles
+bundle.js
