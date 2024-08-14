@@ -22,13 +22,50 @@ class Teacher implements TeacherInterface {
     workTeacherTasks = () : string => 'Getting to work'
 }
 
-function createEmployee(salary: number | string): Teacher | Director {
+const createEmployee = (salary: number | string): Teacher | Director => {
     if (typeof salary === 'number' && salary <= 500) {
         return new Teacher();
     }
     return new Director();
 }
 
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+const isDirector = (employee: Director | Teacher): employee is Director => {
+    return (employee as Director).workDirectorTasks !== undefined;
+}
+
+const executeWork = (employee: Teacher | Director): void => {
+    if (isDirector(employee)) {
+        console.log(employee.workDirectorTasks());
+    } else {
+    console.log(employee.workTeacherTasks());
+    }
+}
+
+type Subjects = 'Math' | 'History';
+
+const teachClass = (todayClass: Subjects):string => {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    return 'Teaching History';
+}
+
+// const employee1 = createEmployee(200);
+// const employee2 = createEmployee(1000);
+// console.log(createEmployee('$500'));
+
+// if (isDirector(employee1)) {
+//     console.log(employee1.workDirectorTasks()); // This line won't execute
+// } else {
+//     console.log(employee1.workTeacherTasks()); // Getting to work
+// }
+
+// if (isDirector(employee2)) {
+//     console.log(employee2.workDirectorTasks()); // Getting to director tasks
+// }
+
+// executeWork(createEmployee(200));
+// executeWork(createEmployee(1000));
+
+// teachClass('Math');
+// teachClass('History');
