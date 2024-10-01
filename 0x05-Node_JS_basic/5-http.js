@@ -30,9 +30,7 @@ const app = http.createServer((req, res) => {
           for (const [field, count] of Object.entries(fieldCounts)) {
             response += `Number of students in ${field}: ${count}. List: ${students.filter((_, idx) => fields[idx] === field).join(', ')}\n`;
           }
-          response = response.trim();
-          console.error(err);
-          res.end(response);
+          res.end(response.trim());
         }
       });
     } else {
