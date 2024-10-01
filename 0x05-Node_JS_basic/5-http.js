@@ -14,6 +14,7 @@ const app = http.createServer((req, res) => {
       const filePath = path.resolve(database);
       fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
+          console.error(err);
           res.end(`Cannot load the database: ${err.message}`);
         } else {
           const lines = data.split('\n').filter((line) => line.trim() !== '');
@@ -30,6 +31,7 @@ const app = http.createServer((req, res) => {
             response += `Number of students in ${field}: ${count}. List: ${students.filter((_, idx) => fields[idx] === field).join(', ')}\n`;
           }
           response = response.trim();
+          console.error(err);
           res.end(response);
         }
       });
