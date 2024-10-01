@@ -20,12 +20,12 @@ function countStudents(path) {
         fields[field].push(student[0]);
       });
 
-      let responseMessage = `Number of students: ${students.length}\n`;
+      console.log(`Number of students: ${students.length}`);
       for (const [field, names] of Object.entries(fields)) {
-        responseMessage += `Number of students in ${field}: ${names.length}. List: ${names.join(', ')}\n`;
+        console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
       }
 
-      resolve(responseMessage.trim());
+      resolve();
     });
   });
 }
