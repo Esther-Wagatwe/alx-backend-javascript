@@ -27,7 +27,7 @@ describe('calculateNumber', function() {
   describe('Invalid type', function() {
     it('should throw an error for invalid type', () => {
       assert.throws(() => {
-        calculateNumber(1, 1, 'INVALID');
+        calculateNumber('INVALID', 1, 1);
       }, /Invalid type/);
     });
   });
