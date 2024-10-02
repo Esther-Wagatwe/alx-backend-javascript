@@ -13,6 +13,7 @@ describe('sendPaymentRequestToApi', function () {
 
   afterEach(function() {
     Utils.calculateNumber.restore();
+    console.log.restore(); 
   });
 
   it('should call Utils.calculateNumber with the correct parameters', function () {
