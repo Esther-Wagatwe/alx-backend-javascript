@@ -8,7 +8,7 @@ const sendPaymentRequestToApi = require('./3-payment');
 describe('sendPaymentRequestToApi', function () {
   beforeEach(function() {
     sinon.spy(Utils, 'calculateNumber');
-    consoleSpy = sinon.spy(console, 'log');
+    sinon.spy(console, 'log');
   });
 
   afterEach(function() {
